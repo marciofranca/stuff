@@ -1,0 +1,7 @@
+--2017-06-05 22:44:54--  https://viacep.com.br/ws/00004828/piped/
+Resolving viacep.com.br... 45.55.59.150
+Connecting to viacep.com.br|45.55.59.150|:443... failed: Operation timed out.
+Retrying.
+
+--2017-06-05 22:44:55--  (try: 2)  https://viacep.com.br/ws/00004828/piped/
+Connecting to viacep.com.br|45.55.59.150|:443... failed: Connection refused.

@@ -1,0 +1,375 @@
+!SESSION 2017-07-15 12:17:23.619 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -keyring /Users/marciofranca/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -data /Volumes/FrancaMac256GB/dev/src/github/marciofranca/stuff/java -product org.eclipse.epp.package.jee.product -keyring /Users/marciofranca/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.wst.server.preview 4 0 2017-07-15 12:17:25.344
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.wst.server.preview [762]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"] and javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.servlet)(&(bundle-version>=2.6.0)(!(bundle-version>=3.1.0))))
+     |
+    provide: osgi.wiring.bundle: javax.servlet
+  javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"]
+
+Chain 2:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(&(bundle-version>=8.0.4)(!(bundle-version>=9.0.0))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.14.v20131031"; osgi.wiring.bundle="org.eclipse.jetty.server"
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.io)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.io; uses:=org.eclipse.jetty.util.log
+  org.eclipse.jetty.io [osgi.identity; osgi.identity="org.eclipse.jetty.io"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.util.log)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.util.log; uses:=javax.servlet
+  org.eclipse.jetty.util [osgi.identity; osgi.identity="org.eclipse.jetty.util"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY oracle.eclipse.tools.coherence.ui 4 0 2017-07-15 12:17:25.433
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: oracle.eclipse.tools.coherence.ui [861]
+  Unresolved requirement: Require-Bundle: oracle.eclipse.tools.weblogic.ui; bundle-version="[7.4.0,7.5.0)"
+    -> Bundle-SymbolicName: oracle.eclipse.tools.weblogic.ui; bundle-version="7.4.0.201504081335"; singleton:="true"
+       oracle.eclipse.tools.weblogic.ui [880]
+         Unresolved requirement: Require-Bundle: oracle.eclipse.tools.jaxrs; bundle-version="[7.4.0,7.5.0)"
+           -> Bundle-SymbolicName: oracle.eclipse.tools.jaxrs; bundle-version="7.4.0.201504081335"; singleton:="true"
+              oracle.eclipse.tools.jaxrs [873]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.server.preview; bundle-version="[1.1.300,1.2.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.server.preview; bundle-version="1.1.300.v201309182039"; singleton:="true"
+                     org.eclipse.wst.server.preview [762]
+                       No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"] and javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.servlet)(&(bundle-version>=2.6.0)(!(bundle-version>=3.1.0))))
+     |
+    provide: osgi.wiring.bundle: javax.servlet
+  javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"]
+
+Chain 2:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(&(bundle-version>=8.0.4)(!(bundle-version>=9.0.0))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.14.v20131031"; osgi.wiring.bundle="org.eclipse.jetty.server"
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.io)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.io; uses:=org.eclipse.jetty.util.log
+  org.eclipse.jetty.io [osgi.identity; osgi.identity="org.eclipse.jetty.io"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.util.log)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.util.log; uses:=javax.servlet
+  org.eclipse.jetty.util [osgi.identity; osgi.identity="org.eclipse.jetty.util"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY oracle.eclipse.tools.jaxrs.ui 4 0 2017-07-15 12:17:25.517
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: oracle.eclipse.tools.jaxrs.ui [874]
+  Unresolved requirement: Require-Bundle: oracle.eclipse.tools.jaxrs; bundle-version="[7.4.0,7.5.0)"
+    -> Bundle-SymbolicName: oracle.eclipse.tools.jaxrs; bundle-version="7.4.0.201504081335"; singleton:="true"
+       oracle.eclipse.tools.jaxrs [873]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.server.preview; bundle-version="[1.1.300,1.2.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.server.preview; bundle-version="1.1.300.v201309182039"; singleton:="true"
+              org.eclipse.wst.server.preview [762]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"] and javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.servlet)(&(bundle-version>=2.6.0)(!(bundle-version>=3.1.0))))
+     |
+    provide: osgi.wiring.bundle: javax.servlet
+  javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"]
+
+Chain 2:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(&(bundle-version>=8.0.4)(!(bundle-version>=9.0.0))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.14.v20131031"; osgi.wiring.bundle="org.eclipse.jetty.server"
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.io)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.io; uses:=org.eclipse.jetty.util.log
+  org.eclipse.jetty.io [osgi.identity; osgi.identity="org.eclipse.jetty.io"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.util.log)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.util.log; uses:=javax.servlet
+  org.eclipse.jetty.util [osgi.identity; osgi.identity="org.eclipse.jetty.util"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY oracle.eclipse.tools.jaxrs.v11 4 0 2017-07-15 12:17:25.566
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: oracle.eclipse.tools.jaxrs.v11 [875]
+  Unresolved requirement: Require-Bundle: oracle.eclipse.tools.jaxrs; bundle-version="[7.4.0,7.5.0)"
+    -> Bundle-SymbolicName: oracle.eclipse.tools.jaxrs; bundle-version="7.4.0.201504081335"; singleton:="true"
+       oracle.eclipse.tools.jaxrs [873]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.server.preview; bundle-version="[1.1.300,1.2.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.server.preview; bundle-version="1.1.300.v201309182039"; singleton:="true"
+              org.eclipse.wst.server.preview [762]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"] and javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.servlet)(&(bundle-version>=2.6.0)(!(bundle-version>=3.1.0))))
+     |
+    provide: osgi.wiring.bundle: javax.servlet
+  javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"]
+
+Chain 2:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(&(bundle-version>=8.0.4)(!(bundle-version>=9.0.0))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.14.v20131031"; osgi.wiring.bundle="org.eclipse.jetty.server"
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.io)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.io; uses:=org.eclipse.jetty.util.log
+  org.eclipse.jetty.io [osgi.identity; osgi.identity="org.eclipse.jetty.io"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.util.log)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.util.log; uses:=javax.servlet
+  org.eclipse.jetty.util [osgi.identity; osgi.identity="org.eclipse.jetty.util"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY oracle.eclipse.tools.weblogic.scripting.ui 4 0 2017-07-15 12:17:25.662
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: oracle.eclipse.tools.weblogic.scripting.ui [879]
+  Unresolved requirement: Require-Bundle: oracle.eclipse.tools.weblogic.ui; bundle-version="[7.4.0,7.5.0)"
+    -> Bundle-SymbolicName: oracle.eclipse.tools.weblogic.ui; bundle-version="7.4.0.201504081335"; singleton:="true"
+       oracle.eclipse.tools.weblogic.ui [880]
+         Unresolved requirement: Require-Bundle: oracle.eclipse.tools.jaxrs; bundle-version="[7.4.0,7.5.0)"
+           -> Bundle-SymbolicName: oracle.eclipse.tools.jaxrs; bundle-version="7.4.0.201504081335"; singleton:="true"
+              oracle.eclipse.tools.jaxrs [873]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.server.preview; bundle-version="[1.1.300,1.2.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.server.preview; bundle-version="1.1.300.v201309182039"; singleton:="true"
+                     org.eclipse.wst.server.preview [762]
+                       No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"] and javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.servlet)(&(bundle-version>=2.6.0)(!(bundle-version>=3.1.0))))
+     |
+    provide: osgi.wiring.bundle: javax.servlet
+  javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"]
+
+Chain 2:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(&(bundle-version>=8.0.4)(!(bundle-version>=9.0.0))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.14.v20131031"; osgi.wiring.bundle="org.eclipse.jetty.server"
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.io)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.io; uses:=org.eclipse.jetty.util.log
+  org.eclipse.jetty.io [osgi.identity; osgi.identity="org.eclipse.jetty.io"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.util.log)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.util.log; uses:=javax.servlet
+  org.eclipse.jetty.util [osgi.identity; osgi.identity="org.eclipse.jetty.util"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY oracle.eclipse.tools.weblogic.ui 4 0 2017-07-15 12:17:25.735
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: oracle.eclipse.tools.weblogic.ui [880]
+  Unresolved requirement: Require-Bundle: oracle.eclipse.tools.jaxrs; bundle-version="[7.4.0,7.5.0)"
+    -> Bundle-SymbolicName: oracle.eclipse.tools.jaxrs; bundle-version="7.4.0.201504081335"; singleton:="true"
+       oracle.eclipse.tools.jaxrs [873]
+         Unresolved requirement: Require-Bundle: org.eclipse.wst.server.preview; bundle-version="[1.1.300,1.2.0)"
+           -> Bundle-SymbolicName: org.eclipse.wst.server.preview; bundle-version="1.1.300.v201309182039"; singleton:="true"
+              org.eclipse.wst.server.preview [762]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"] and javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.servlet)(&(bundle-version>=2.6.0)(!(bundle-version>=3.1.0))))
+     |
+    provide: osgi.wiring.bundle: javax.servlet
+  javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"]
+
+Chain 2:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(&(bundle-version>=8.0.4)(!(bundle-version>=9.0.0))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.14.v20131031"; osgi.wiring.bundle="org.eclipse.jetty.server"
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.io)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.io; uses:=org.eclipse.jetty.util.log
+  org.eclipse.jetty.io [osgi.identity; osgi.identity="org.eclipse.jetty.io"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.util.log)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.util.log; uses:=javax.servlet
+  org.eclipse.jetty.util [osgi.identity; osgi.identity="org.eclipse.jetty.util"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY oracle.eclipse.tools.webservices.ui 4 0 2017-07-15 12:17:25.814
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: oracle.eclipse.tools.webservices.ui [894]
+  Unresolved requirement: Require-Bundle: oracle.eclipse.tools.weblogic.ui; bundle-version="[7.4.0,7.5.0)"
+    -> Bundle-SymbolicName: oracle.eclipse.tools.weblogic.ui; bundle-version="7.4.0.201504081335"; singleton:="true"
+       oracle.eclipse.tools.weblogic.ui [880]
+         Unresolved requirement: Require-Bundle: oracle.eclipse.tools.jaxrs; bundle-version="[7.4.0,7.5.0)"
+           -> Bundle-SymbolicName: oracle.eclipse.tools.jaxrs; bundle-version="7.4.0.201504081335"; singleton:="true"
+              oracle.eclipse.tools.jaxrs [873]
+                Unresolved requirement: Require-Bundle: org.eclipse.wst.server.preview; bundle-version="[1.1.300,1.2.0)"
+                  -> Bundle-SymbolicName: org.eclipse.wst.server.preview; bundle-version="1.1.300.v201309182039"; singleton:="true"
+                     org.eclipse.wst.server.preview [762]
+                       No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"] because it is exposed to package 'javax.servlet' from resources javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"] and javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=javax.servlet)(&(bundle-version>=2.6.0)(!(bundle-version>=3.1.0))))
+     |
+    provide: osgi.wiring.bundle: javax.servlet
+  javax.servlet [osgi.identity; osgi.identity="javax.servlet"; type="osgi.bundle"; version:Version="3.0.0.v201112011016"]
+
+Chain 2:
+  org.eclipse.wst.server.preview [osgi.identity; osgi.identity="org.eclipse.wst.server.preview"; type="osgi.bundle"; version:Version="1.1.300.v201309182039"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(&(bundle-version>=8.0.4)(!(bundle-version>=9.0.0))))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.14.v20131031"; osgi.wiring.bundle="org.eclipse.jetty.server"
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.io)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.io; uses:=org.eclipse.jetty.util.log
+  org.eclipse.jetty.io [osgi.identity; osgi.identity="org.eclipse.jetty.io"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.util.log)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package=org.eclipse.jetty.util.log; uses:=javax.servlet
+  org.eclipse.jetty.util [osgi.identity; osgi.identity="org.eclipse.jetty.util"; type="osgi.bundle"; version:Version="8.1.14.v20131031"]
+    import: (&(osgi.wiring.package=javax.servlet)(version>=2.6.0))
+     |
+    export: osgi.wiring.package: javax.servlet
+  javax.servlet-api [osgi.identity; osgi.identity="javax.servlet-api"; type="osgi.bundle"; version:Version="3.1.0"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2017-07-15 12:17:27.214
+!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+!STACK 0
+java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
+	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+!ENTRY org.eclipse.core.net 1 0 2017-07-15 12:17:31.131
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2017-07-15 12:17:31.695
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2017-07-15 12:17:31.695
+!MESSAGE A conflict occurred for ALT+COMMAND+R:
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.python.pydev.debug.setnext,Set Next Statement,
+		,
+		Category(org.python.pydev.ui.category.run,PyDev - Run,Python run category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4d745ac6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6e54bef6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
