@@ -1,0 +1,87 @@
+
+a
+AV1HM6duO4GGCLhjfAoLI
+AV1HM6duO4GGCLhjfAoL	Sonar wayabap"ABAP(722017-05-05T10:33:12+0000
+[
+AV1HM6duO4GGCLhjfAoPC
+AV1HM6duO4GGCLhjfAoP	Sonar wayc"C(z22017-06-08T15:36:53+0000
+c
+AV1HM6duO4GGCLhjfAoNK
+AV1HM6duO4GGCLhjfAoN	Sonar waycobol"COBOL(C22017-04-11T10:33:16+0000
+`
+AV1HM6duO4GGCLhjfAoYH
+AV1HM6duO4GGCLhjfAoY	Sonar waycpp"C++(¿22017-06-08T15:37:11+0000
+^
+AV1HM6duO4GGCLhjfAoMF
+AV1HM6duO4GGCLhjfAoM	Sonar waycs"C#(ª22017-07-07T10:24:02+0000
+a
+AV1HM6duO4GGCLhjfAoII
+AV1HM6duO4GGCLhjfAoI	Sonar wayflex"Flex(<22015-10-05T06:07:44+0000
+b
+AV1HM6duO4GGCLhjfAoUJ
+AV1HM6duO4GGCLhjfAoU	Sonar wayjava"Java(–22017-07-07T10:25:01+0000
+e
+AV1HM6duO4GGCLhjfAoSM
+AV1HM6duO4GGCLhjfAoS	Sonar wayjs"
+JavaScript(@22017-06-22T05:35:35+0000
+q
+AV1HM6duO4GGCLhjfAoRY
+AV1HM6duO4GGCLhjfAoRSonar way Recommendedjs"
+JavaScript(q22017-06-22T05:35:33+0000
+h
+AV1HM6duO4GGCLhjfAoXP
+AV1HM6duO4GGCLhjfAoX	Sonar wayobjc"Objective-C(s22017-06-08T15:37:48+0000
+\
+AV1HM6duO4GGCLhjfAn-D
+AV1HM6duO4GGCLhjfAn-Drupalphp"PHP(22016-11-09T08:54:55+0000
+[
+AV1HM6duO4GGCLhjfAoHC
+AV1HM6duO4GGCLhjfAoHPSR-2php"PHP(22016-11-09T08:54:55+0000
+_
+AV1HM6duO4GGCLhjfAn_G
+AV1HM6duO4GGCLhjfAn_	Sonar wayphp"PHP(?22017-05-05T10:33:39+0000
+`
+AV1HM6duO4GGCLhjfAoAH
+AV1HM6duO4GGCLhjfAoA	Sonar waypli"PL/I(22014-09-05T15:22:27+0000
+d
+AV1HM6duO4GGCLhjfAoWL
+AV1HM6duO4GGCLhjfAoWSonarQube waypli"PL/I(22017-05-05T10:33:42+0000
+d
+AV1HM6duO4GGCLhjfAoJL
+AV1HM6duO4GGCLhjfAoJ	Sonar wayplsql"PL/SQL(r22017-03-17T11:33:11+0000
+a
+AV1HM6duO4GGCLhjfAoCI
+AV1HM6duO4GGCLhjfAoC	Sonar waypy"Python( 22017-05-19T10:33:44+0000
+_
+AV1HM6duO4GGCLhjfAoKG
+AV1HM6duO4GGCLhjfAoK	Sonar wayrpg"RPG(&22017-05-05T10:33:51+0000
+c
+AV1HM6duO4GGCLhjfAn7K
+AV1HM6duO4GGCLhjfAn7	Sonar wayswift"Swift(122017-05-05T10:33:54+0000
+o
+AV1HM6duO4GGCLhjfAoOW
+AV1HM6duO4GGCLhjfAoO	Sonar wayvbnet"Visual Basic .NET(&22017-06-22T05:35:56+0000
+_
+AV1HM6duO4GGCLhjfAoQG
+AV1HM6duO4GGCLhjfAoQ	Sonar wayweb"Web(22017-04-27T10:29:09+0000
+_
+AV1HM6duO4GGCLhjfAoVG
+AV1HM6duO4GGCLhjfAoV	Sonar wayxml"XML(22017-03-17T11:33:26+0000
+abapAV1HM6duO4GGCLhjfAoL
+cAV1HM6duO4GGCLhjfAoP
+cobolAV1HM6duO4GGCLhjfAoN
+cppAV1HM6duO4GGCLhjfAoY
+csAV1HM6duO4GGCLhjfAoM
+flexAV1HM6duO4GGCLhjfAoI
+javaAV1HM6duO4GGCLhjfAoU
+jsAV1HM6duO4GGCLhjfAoS
+objcAV1HM6duO4GGCLhjfAoX
+phpAV1HM6duO4GGCLhjfAn_
+pliAV1HM6duO4GGCLhjfAoW
+plsqlAV1HM6duO4GGCLhjfAoJ
+pyAV1HM6duO4GGCLhjfAoC
+rpgAV1HM6duO4GGCLhjfAoK
+swiftAV1HM6duO4GGCLhjfAn7
+vbnetAV1HM6duO4GGCLhjfAoO
+webAV1HM6duO4GGCLhjfAoQ
+xmlAV1HM6duO4GGCLhjfAoV
