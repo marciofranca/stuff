@@ -1,0 +1,9 @@
+
+psquid:S15960">Replace "Collections.EMPTY_LIST" by "Collections.emptyList()".(÷ƒ¨öúÿÿÿÿHæRMINORZ
+CODE_SMELL
+È%squid:RedundantThrowsDeclarationCheckJ"€Remove the declaration of thrown exception 'com.crossover.trial.journals.service.ServiceException' which is a runtime exception.(úÉã¡HåRMINORZ
+CODE_SMELL
+…squid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(øÃâÆüÿÿÿÿHãRMINORZ
+CODE_SMELL
+Í%squid:RedundantThrowsDeclarationCheck;"€Remove the declaration of thrown exception 'com.crossover.trial.journals.service.ServiceException' which is a runtime exception.(¥·Š²ûÿÿÿÿHäRMINORZ
+CODE_SMELL
