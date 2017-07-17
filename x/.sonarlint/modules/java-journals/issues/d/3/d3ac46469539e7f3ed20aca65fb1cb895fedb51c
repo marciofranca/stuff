@@ -1,8 +1,8 @@
 
+Wsquid:S1948".Make "subscription" transient or serializable.(ÎĞıóHØWRCRITICALZBUG
+]squid:S2160"+Override the "equals" method in this class.(®í‚¢øÿÿÿÿHÛWRMINORZ
+CODE_SMELL
+]squid:S1068"0Remove this unused "subscription" private field.(ÎĞıóHÙWRMAJORZ
+CODE_SMELL
 Tsquid:S1948
-"&Make "user" transient or serializable.(’Ø¾ıÿÿÿÿH«RCRITICALZBUG
-Wsquid:S1948".Make "subscription" transient or serializable.(ÎĞıóH©RCRITICALZBUG
-]squid:S1068"0Remove this unused "subscription" private field.(ÎĞıóH¨RMAJORZ
-CODE_SMELL
-]squid:S2160"+Override the "equals" method in this class.(®í‚¢øÿÿÿÿHªRMINORZ
-CODE_SMELL
+"&Make "user" transient or serializable.(’Ø¾ıÿÿÿÿHÚWRCRITICALZBUG

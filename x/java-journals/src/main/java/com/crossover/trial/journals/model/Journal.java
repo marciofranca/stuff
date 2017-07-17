@@ -24,20 +24,22 @@ public class Journal {
 	private Date publishDate;
 
 	@ManyToOne(optional = false)
-    @JoinColumn(name = "publisher_id")
+	@JoinColumn(name = "publisher_id")
 	private Publisher publisher;
 
-    @Column(nullable = false)
-    private String uuid; //external id
+	@Column(nullable = false)
+	private String uuid; // external id
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "category_id")
-    private Category category;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "category_id")
+	private Category category;
 
-    @PrePersist
-    void onPersist() {
-        this.publishDate = new Date();
-    }
+	@PrePersist
+	void onPersist() {
+		if (this.publishDate == null) {
+			this.publishDate = new Date();
+		}
+	}
 
 	public Long getId() {
 		return id;
@@ -55,31 +57,35 @@ public class Journal {
 		this.name = name;
 	}
 
-    public Date getPublishDate() {
-        return publishDate;
-    }
+	public void setPublishDate(Date publishDate) {
+		this.publishDate = publishDate;
+	}
 
-    public Publisher getPublisher() {
-        return publisher;
-    }
+	public Date getPublishDate() {
+		return publishDate;
+	}
 
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
+	public Publisher getPublisher() {
+		return publisher;
+	}
 
-    public String getUuid() {
-        return uuid;
-    }
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public Category getCategory() {
-        return category;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 }

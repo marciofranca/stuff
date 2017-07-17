@@ -42,6 +42,9 @@ public class User {
 	@Cascade(CascadeType.ALL)
 	private List<Subscription> subscriptions;
 
+	@Column(nullable = false)
+	private String email;
+
 	public String getLoginName() {
 		return loginName;
 	}
@@ -88,5 +91,30 @@ public class User {
 
 	public void setSubscriptions(List<Subscription> subscriptions) {
 		this.subscriptions = subscriptions;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o != null && o instanceof User) {
+			User other = (User) o;
+			return this.getId() == null && other.getId() == null || this.getId().equals(other.getId());
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		if (getId() == null) {
+			return 0;
+		}
+		return getId().hashCode();
 	}
 }

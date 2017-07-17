@@ -1,6 +1,3 @@
 
-csquid:S36558"8Call "publisher.isPresent()" before accessing the value.(ï˜Š¬ùÿÿÿÿH®RMAJORZBUG
-Ysquid:S1068""'Remove this unused "log" private field.(€¦ø°ÿÿÿÿÿH­RMAJORZ
-CODE_SMELL
-…squid:ModifiersOrderCheck""EReorder the modifiers to comply with the Java Language Specification.(€¦ø°ÿÿÿÿÿH¬RMINORZ
+tsquid:UselessImportCheck"4Remove this unused import 'org.apache.log4j.Logger'.(ñè½8õÛİÔ+H‰vRMINORZ
 CODE_SMELL

@@ -37,3 +37,5 @@ CREATE TABLE subscription
     user_id BIGINT(20) NOT NULL
 );
 CREATE UNIQUE INDEX UK_tq3cq3gmsss8jjyb2l5sb1o6k ON subscription (user_id);
+
+ALTER TABLE user ADD COLUMN email VARCHAR(255) NOT NULL;

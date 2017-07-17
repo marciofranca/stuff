@@ -1,36 +1,42 @@
 package com.crossover.trial.journals.rest;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
-import com.crossover.trial.journals.Application;
-import com.crossover.trial.journals.model.Journal;
-import com.crossover.trial.journals.model.Publisher;
-import com.crossover.trial.journals.model.User;
-import com.crossover.trial.journals.repository.PublisherRepository;
-import com.crossover.trial.journals.service.JournalService;
-import com.crossover.trial.journals.service.ServiceException;
-import com.crossover.trial.journals.service.UserService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
-@WebAppConfiguration
+import com.crossover.trial.journals.ApplicationTestConfig;
+import com.crossover.trial.journals.model.Journal;
+import com.crossover.trial.journals.model.Publisher;
+import com.crossover.trial.journals.model.User;
+import com.crossover.trial.journals.repository.PublisherRepository;
+import com.crossover.trial.journals.service.JournalService;
+import com.crossover.trial.journals.service.MessageListener;
+import com.crossover.trial.journals.service.ServiceException;
+import com.crossover.trial.journals.service.UserService;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = ApplicationTestConfig.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class JournalServiceTest {
 
-	private final static String NEW_JOURNAL_NAME = "New Journal";
+	private final static String NEW_JOURNAL_NAME = "Yesterday 1";
 
 	@Autowired
 	private JournalService journalService;
@@ -45,7 +51,7 @@ public class JournalServiceTest {
 	public void browseSubscribedUser() {
 		List<Journal> journals = journalService.listAll(getUser("user1"));
 		assertNotNull(journals);
-		assertEquals(1, journals.size());
+		assertFalse(journals.isEmpty());
 
 		assertEquals(new Long(1), journals.get(0).getId());
 		assertEquals("Medicine", journals.get(0).getName());
@@ -84,7 +90,7 @@ public class JournalServiceTest {
 		Journal journal = new Journal();
 		journal.setName("New Journal");
 
-		journalService.publish(p.get(), journal, 1L);
+		journalService.publish(p.get(), journal, 1L, null);
 	}
 
 	@Test(expected = ServiceException.class)
@@ -95,7 +101,8 @@ public class JournalServiceTest {
 		Journal journal = new Journal();
 		journal.setName("New Journal");
 
-		journalService.publish(p.get(), journal, 150L);
+		InputStream input = new ByteArrayInputStream(new byte[] {});
+		journalService.publish(p.get(), journal, 150L, input);
 	}
 
 	@Test()
@@ -107,22 +114,25 @@ public class JournalServiceTest {
 		journal.setName(NEW_JOURNAL_NAME);
 		journal.setUuid("SOME_EXTERNAL_ID");
 		try {
-			journalService.publish(p.get(), journal, 3L);
+			InputStream input = new ByteArrayInputStream(new byte[] {});
+			journalService.publish(p.get(), journal, 3L, input);
 		} catch (ServiceException e) {
 			fail(e.getMessage());
 		}
 
 		List<Journal> journals = journalService.listAll(getUser("user1"));
-		assertEquals(2, journals.size());
+		assertEquals(5, journals.size());
 
 		journals = journalService.publisherList(p.get());
-		assertEquals(2, journals.size());
+		assertEquals(4, journals.size());
 		assertEquals(new Long(3), journals.get(0).getId());
 		assertEquals(new Long(4), journals.get(1).getId());
 		assertEquals("Health", journals.get(0).getName());
 		assertEquals(NEW_JOURNAL_NAME, journals.get(1).getName());
 		journals.stream().forEach(j -> assertNotNull(j.getPublishDate()));
 		journals.stream().forEach(j -> assertEquals(new Long(2), j.getPublisher().getId()));
+
+		await().atMost(10, TimeUnit.SECONDS).until(() -> MessageListener.COUNT.get() == 0);
 	}
 
 	@Test(expected = ServiceException.class)
@@ -146,9 +156,9 @@ public class JournalServiceTest {
 		journalService.unPublish(p.get(), 4L);
 
 		List<Journal> journals = journalService.publisherList(p.get());
-		assertEquals(1, journals.size());
+		assertEquals(3, journals.size());
 		journals = journalService.listAll(getUser("user1"));
-		assertEquals(1, journals.size());
+		assertEquals(4, journals.size());
 	}
 
 	protected User getUser(String name) {
