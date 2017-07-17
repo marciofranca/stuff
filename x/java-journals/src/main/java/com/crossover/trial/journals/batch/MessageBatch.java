@@ -26,16 +26,16 @@ public class MessageBatch {
 	@Autowired
 	private JournalService journalService;
 
-	// TODO: Just for testing purposes as it is scheduled once a day. Should be
-	// removed.
-	private static boolean run = true;
-	@Scheduled(cron = "* * * * * ?")
-	public void onceAMinute() {
-		if (run) {
-			this.sendDailyJournalUpdates();
-			run = false;
-		}
-	}
+	// // TODO: Just for testing purposes as it is scheduled once a day. Should be
+	// // removed.
+	// private static boolean run = true;
+	// @Scheduled(cron = "* * * * * ?")
+	// public void onceAMinute() {
+	// if (run) {
+	// this.sendDailyJournalUpdates();
+	// run = false;
+	// }
+	// }
 
 	/**
 	 * This method is configured to execute every day at 00:00:00 (12 AM). It
