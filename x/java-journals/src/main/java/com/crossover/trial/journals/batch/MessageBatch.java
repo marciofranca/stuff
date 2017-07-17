@@ -26,11 +26,26 @@ public class MessageBatch {
 	@Autowired
 	private JournalService journalService;
 
+	// TODO: Just for testing purposes as it is scheduled once a day. Should be
+	// removed.
+	private static boolean run = true;
+	@Scheduled(cron = "* * * * * ?")
+	public void onceAMinute() {
+		if (run) {
+			this.sendDailyJournalUpdates();
+			run = false;
+		}
+	}
+
 	/**
 	 * This method is configured to execute every day at 00:00:00 (12 AM). It
 	 * retrieves new published journals on previous day and notify users subscribed.
 	 */
 	@Scheduled(cron = "0 0 0 * * ?")
+	public void onceADay() {
+		this.sendDailyJournalUpdates();
+	}
+
 	public void sendDailyJournalUpdates() {
 		LOG.info("Starting sendDailyJournalUpdates batch.");
 		try {

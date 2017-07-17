@@ -18,7 +18,6 @@ public class Application {
 	public static void main(String[] args) throws Exception {
 		SpringApplication app = new SpringApplicationBuilder(Application.class).build();
 		app.run(args);
-
 	}
 
 }
