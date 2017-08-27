@@ -89,8 +89,6 @@ V
 Qsrc/main/java/com/crossover/trial/journals/repository/SubscriptionRepository.java,2/e/2eb908d58ea0431618667e04ef4352379b67d04a
 ^
 .src/test/resources/application-unit.properties,7/c/7c5c4d646d8ddeb18f4f4ec26c6d008679ba3820
-o
-?src/test/java/com/crossover/trial/journals/ApplicationTest.java,6/4/649255bd2336ff347f43f974c3ce7eb4a2fcaf61
 w
 Gsrc/main/java/com/crossover/trial/journals/service/TemplateService.java,0/d/0dc2996f6d5563b063b07a7fa49fe26e7316580d
 {
@@ -129,3 +127,13 @@ w
 Gsrc/main/java/com/crossover/trial/journals/service/FileServiceImpl.java,7/2/723777c5ae5eff20432beb1d5da841fa1b3d6e69
 z
 Jsrc/test/java/com/crossover/trial/journals/service/JournalServiceTest.java,f/4/f4ad291109096bb13c95e1ffc61863ab354e031a
+w
+Gsrc/test/java/com/crossover/trial/journals/service/UserServiceTest.java,b/d/bd2cf98e6620f42857fc6f320e99c1685a73dc89
+w
+Gsrc/test/java/com/crossover/trial/journals/dto/SubscriptionDTOTest.java,a/a/aa513abd22a4195fe627cfdc4bd3576f3b90dfd1
+u
+Esrc/test/java/com/crossover/trial/journals/ApplicationTestConfig.java,c/b/cb896ef7330eaaf7e8caffe4b2a4d17b7d981eaa
+p
+@src/main/java/com/crossover/trial/journals/config/JmsConfig.java,0/3/039c4f86b1c59b0ff135b609f443f8dc85335fb7
+V
+&src/main/resources/updatedb-script.sql,3/5/35f9914b8293957672a546e2b762c5fcf8a72b83
