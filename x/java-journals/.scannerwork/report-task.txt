@@ -1,0 +1,6 @@
+projectKey=test-java-journals:project
+serverUrl=http://localhost:9000
+serverVersion=6.5.0.27846
+dashboardUrl=http://localhost:9000/dashboard/index/test-java-journals:project
+ceTaskId=AV6W-dDAiYEYbzxSZayE
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AV6W-dDAiYEYbzxSZayE
